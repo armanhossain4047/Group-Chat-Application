@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NumanEnterprize</string>
+    <string name="chat_box">chat_box</string>
+    <string name="networking_lab_group">Networking Lab Group</string>
+    <string name="enter_your_message">enter your message</string>
+    <string name="attached">attached</string>
+    <string name="audio_call">Audio_call</string>
+    <string name="message_send">Message_send</string>
+    <string name="profile_picture">Profile_Picture</string>
+    <string name="enter_ip_address">Enter IP Address</string>
+    <string name="enter_port_number">Enter Port Number</string>
+    <string name="todo">TODO</string>
+    <string name="sign_in">Sign In</string>
+</resources>
