@@ -18,14 +18,14 @@
             android:name=".Chat"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Group_Chat_Activity"
             android:exported="false" />
         <activity
-            android:name=".PrintActivity"
+            android:name=".Sign_In_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

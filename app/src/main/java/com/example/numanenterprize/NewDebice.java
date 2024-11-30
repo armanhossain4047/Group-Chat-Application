@@ -1,8 +1,5 @@
 package com.example.numanenterprize;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -23,7 +20,7 @@ public class NewDebice extends Thread{
     public void run() {
         try {
             Socket client = new Socket(ip, port);
-            MainActivity.connection=true;
+            Group_Chat_Activity.connection=true;
             DataOutputStream write = new DataOutputStream(new DataOutputStream(client.getOutputStream()));
             DataInputStream read = new DataInputStream(new DataInputStream(client.getInputStream()));
             BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
