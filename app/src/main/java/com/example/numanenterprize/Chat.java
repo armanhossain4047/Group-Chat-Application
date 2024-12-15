@@ -80,6 +80,7 @@ public class Chat extends AppCompatActivity {
                // startListeningForMessages(adapter, titles, subtitles, recyclerView);
 
                 new Thread(() -> {
+                    Socket ThisClient = client;
                     try {
                         while (isConnected) {
                             // Read the incoming message
@@ -88,7 +89,7 @@ public class Chat extends AppCompatActivity {
                             // Update the RecyclerView with the received message
                             runOnUiThread(() -> {
                                 isSentByMe.add(false);
-                                titles.add("Server"); // Add sender as "Server"
+                                titles.add("Group"); // Add sender as "Server"
                                 subtitles.add(serverMessage); // Add the message to the data list
                                 adapter.notifyItemInserted(subtitles.size() - 1); // Notify adapter of the new item
                                 recyclerView.scrollToPosition(subtitles.size() - 1); // Scroll to the latest message
