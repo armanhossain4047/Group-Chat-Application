@@ -32,7 +32,7 @@ import java.util.List;
 public class Chat extends AppCompatActivity {
     public static List<Socket> clientList = new ArrayList<>();
 
-    public static String IPAddress = "192.168.100.91", PortNumber = "4047";
+    public static String IPAddress = "192.168.12.91", PortNumber = "1234";
     private DataOutputStream write;
     private DataInputStream read;
     private Socket client;
@@ -51,17 +51,20 @@ public class Chat extends AppCompatActivity {
             return insets;
         });
 
-        // Initialize UI components
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        List<String> titles = new ArrayList<>();
+        List<String> subtitles = new ArrayList<>();
+        List<Boolean> isSentByMe = new ArrayList<>();
+
+        MyAdapter adapter = new MyAdapter(titles, subtitles, isSentByMe);
+        recyclerView.setAdapter(adapter);
+
+        // Initialize UI components
         ImageButton send = findViewById(R.id.sendButton);
         EditText text = findViewById(R.id.messageInput);
 
-        // Setup RecyclerView (Sample adapter)
-        List<String> titles = new ArrayList<>();
-        List<String> subtitles = new ArrayList<>();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter adapter = new MyAdapter(titles, subtitles);
-        recyclerView.setAdapter(adapter);
 
         // Establish connection with the server in a background thread
         new Thread(() -> {
@@ -84,6 +87,7 @@ public class Chat extends AppCompatActivity {
 
                             // Update the RecyclerView with the received message
                             runOnUiThread(() -> {
+                                isSentByMe.add(false);
                                 titles.add("Server"); // Add sender as "Server"
                                 subtitles.add(serverMessage); // Add the message to the data list
                                 adapter.notifyItemInserted(subtitles.size() - 1); // Notify adapter of the new item
@@ -118,7 +122,8 @@ public class Chat extends AppCompatActivity {
 
                         // Update the RecyclerView
                         runOnUiThread(() -> {
-                            titles.add("You");
+                            isSentByMe.add(true);
+                            titles.add("Me");
                             subtitles.add(message);
                             adapter.notifyItemInserted(subtitles.size() - 1); // Notify adapter of the new item
                             recyclerView.scrollToPosition(subtitles.size() - 1); // Scroll to the latest message
