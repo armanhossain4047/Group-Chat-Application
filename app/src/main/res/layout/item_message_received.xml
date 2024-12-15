@@ -6,23 +6,25 @@
     android:gravity="start"
     android:padding="8dp">
 
+
+
+    <TextView
+        android:id="@+id/itemSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@drawable/bg_message_received"
+        android:text="Message"
+        android:textColor="#000000" />
     <TextView
         android:id="@+id/itemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Title"
+        android:layout_below="@+id/itemSubtitle"
         android:textColor="#F8857272"
         android:textSize="10dp"
+        android:layout_marginStart="5dp"
         android:textStyle="italic"
         tools:ignore="TextSizeCheck" />
-
-    <TextView
-        android:id="@+id/itemSubtitle"
-        android:layout_below="@+id/itemTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/bg_message_received"
-        android:text="Message"
-        android:textColor="#000000" />
 </RelativeLayout>

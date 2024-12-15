@@ -6,18 +6,9 @@ android:layout_height="wrap_content"
 android:orientation="horizontal"
 android:padding="8dp"
 android:gravity="end"> <!-- Align to the right -->
-    <TextView
-        android:id="@+id/itemTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        android:textColor="#F8857272"
-        android:textSize="10dp"
-        android:textStyle="italic"
-        tools:ignore="TextSizeCheck" />
+
 <TextView
     android:id="@+id/itemSubtitle"
-    android:layout_below="@+id/itemTitle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="10dp"
@@ -25,4 +16,15 @@ android:gravity="end"> <!-- Align to the right -->
     android:background="@drawable/bg_message_sent"
     android:textColor="@android:color/white"
     android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/itemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:layout_below="@+id/itemSubtitle"
+        android:textColor="#F8857272"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        tools:ignore="TextSizeCheck" />
 </RelativeLayout>
