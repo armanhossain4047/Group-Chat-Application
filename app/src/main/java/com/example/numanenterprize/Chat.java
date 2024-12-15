@@ -32,7 +32,7 @@ import java.util.List;
 public class Chat extends AppCompatActivity {
     public static List<Socket> clientList = new ArrayList<>();
 
-    public static String IPAddress = "192.168.0.106", PortNumber = "1234";
+    public static String IPAddress = "192.168.100.91", PortNumber = "4047";
     private DataOutputStream write;
     private DataInputStream read;
     private Socket client;

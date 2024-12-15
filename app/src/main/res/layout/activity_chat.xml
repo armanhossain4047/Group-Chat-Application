@@ -1,12 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Chat">
+
     <RelativeLayout
+        android:id="@+id/top_layer_id"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="10dp"
+        android:background="@drawable/top_background_vector">
+
+        <ImageButton
+            android:id="@+id/profile_id"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/profile"
+            android:contentDescription="@string/profile_picture">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/video_cal_id"
+            android:layout_toEndOf="@+id/profile_id"
+            android:text="@string/networking_lab_group"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            tools:ignore="TextSizeCheck"></TextView>
+
+        <ImageButton
+            android:id="@+id/video_cal_id"
+            android:layout_width="35dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@id/audio_call_id"
+            android:background="@drawable/video_call_vector"
+            android:contentDescription="@string/app_name"
+            tools:ignore="TouchTargetSizeCheck">
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/audio_call_id"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/audio_call_vector"
+            android:contentDescription="@string/audio_call"
+            tools:ignore="TouchTargetSizeCheck">
+
+        </ImageButton>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/top_layer_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -36,11 +96,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#ffffff"
-                android:hint="Type a message"
-                android:inputType="text"
+                android:layout_toStartOf="@id/sendButton"
+                android:layout_toEndOf="@id/attach_id"
+                android:background="@drawable/input_field_background"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="start|center_vertical"
+                android:hint="Type Your Message"
+                android:imeOptions="actionSend"
+                android:importantForAccessibility="yes"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
                 android:minHeight="48dp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <!-- Send button -->
             <ImageButton
@@ -55,4 +126,4 @@
     </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
